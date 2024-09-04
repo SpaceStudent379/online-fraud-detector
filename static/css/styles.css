@@ -1,0 +1,9 @@
+.background-image {
+    background-image: url("{% static 'images/heart.jpg' %}");
+    background-size: cover; /* Ensures the image covers the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Makes the background cover the entire viewport height */
+    margin: 0;
+    padding: 0;
+}

@@ -1,0 +1,21 @@
+<!-- templates/home.html -->
+
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+ {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}! Your balance is {{ user.balance }} .</p>
+    <p><button><a href="{% url 'dashboard' %}">check winner/ claim prize </a>.</button></p>
+    <p><button><a href="{% url 'update_balance' %}">Edit Balance</a>.</button></p>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button class="btn btn-success" type="submit">Log Out</button>
+    </form>
+
+ {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a> | <a href="{% url 'signup' %}">Sign Up</a>
+ {% endif %}
+{% endblock content %}
